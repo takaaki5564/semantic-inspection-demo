@@ -7,6 +7,7 @@ import numpy as np
 from arm_camera_evidence import DEFAULT_MOUNT, assert_pose_close, mounted_capture_record
 from arm_motion_adapter import ArmMotionAdapter
 from capture_metadata import reference_time, rigid_transform
+from render_camera_evidence import RenderCameraPosePending
 
 
 class ArmCameraAdapter(ArmMotionAdapter):
@@ -96,7 +97,8 @@ class ArmCameraAdapter(ArmMotionAdapter):
         assert_pose_close(self.world_transform(self.PART_PATH), self.world_part, "Capture board moved")
         # Only the renderer clock is placed at the current physical snapshot; no physics stepping here.
         self.timeline.set_current_time(before["simulation_time_s"])
-        for _ in range(10):
+        renderer_rejections = []
+        for attempt in range(1, 11):
             if not self.is_running():
                 raise RuntimeError("Window closed before wrist RGB capture")
             self.rep.orchestrator.step(rt_subframes=4, delta_time=0.0, wait_for_render=True)
@@ -124,9 +126,25 @@ class ArmCameraAdapter(ArmMotionAdapter):
                                             local_mount=np.asarray(local,dtype=float).T, reference=reference,
                                             previous_reference=self.last_reference, readback_utc=datetime.now(timezone.utc).isoformat(),
                                             render_step_index=self.render_steps)
+            try:
+                renderer = self._renderer_evidence()
+            except RenderCameraPosePending as error:
+                renderer_rejections.append({"attempt": attempt, "reason": str(error)})
+                continue
+            if renderer is not None:
+                record.update(renderer_camera=renderer,
+                              render_synchronization={"accepted_attempt": attempt, "max_attempts": 10,
+                                                      "rejected_renderer_frames": renderer_rejections})
+            # Advance freshness only after all pose/clock/mount/render checks pass together.
             self.last_reference = reference_time(reference)
             return rgb, record
+        if renderer_rejections:
+            raise RuntimeError(f"RGB renderer did not synchronize after 10 held-pose renders: {renderer_rejections[-1]['reason']}")
         raise RuntimeError("No fresh wrist RGB frame after 10 synchronized render attempts")
+
+    def _renderer_evidence(self):
+        # The closed-loop adapter opts into CameraParams validation. Earlier probes retain their protocol.
+        return None
 
     def close(self):
         if self.reference_annotator is not None:

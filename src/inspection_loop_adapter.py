@@ -11,7 +11,7 @@ from arm_inspection_adapter import ArmInspectionAdapter
 from arm_inspection_geometry import scene_fingerprint
 from arm_view_prediction import predict_robot_scene
 from capture_metadata import capture_record, reference_time, rigid_transform
-from render_camera_evidence import validate_render_camera
+from render_camera_evidence import RenderCameraPosePending, validate_render_camera
 
 
 class InspectionLoopAdapter(ArmInspectionAdapter):
@@ -155,9 +155,7 @@ class InspectionLoopAdapter(ArmInspectionAdapter):
 
     def capture(self, image, movement=None):
         if self.executor_mode == "arm":
-            rgb, record = super().capture(image,movement)
-            record["renderer_camera"] = self._renderer_evidence()
-            return rgb, record
+            return super().capture(image,movement)
         from pxr import Gf
 
         if self.timeline.is_playing():
@@ -167,7 +165,8 @@ class InspectionLoopAdapter(ArmInspectionAdapter):
         before, camera = self.read_state(), self.world_transform(self.CAMERA_PATH)
         assert_pose_close(self.world_transform(self.PART_PATH),self.world_part,"Part moved")
         self.timeline.set_current_time(before["simulation_time_s"])
-        for _ in range(10):
+        renderer_rejections = []
+        for attempt in range(1, 11):
             if not self.is_running():
                 raise RuntimeError("Window closed before free RGB capture")
             self.rep.orchestrator.step(rt_subframes=4,delta_time=0.0,wait_for_render=True)
@@ -201,9 +200,18 @@ class InspectionLoopAdapter(ArmInspectionAdapter):
                           render_step_index=self.render_steps,joints_rad=after["joints_rad"],velocities_rad_s=after["velocities_rad_s"],
                           parking_joint_targets_rad=self.parking_joints.tolist(),
                           reference_clock_convention="renderer reference equals held physics time; parking joint targets unchanged")
+            try:
+                renderer = self._renderer_evidence()
+            except RenderCameraPosePending as error:
+                renderer_rejections.append({"attempt": attempt, "reason": str(error)})
+                continue
+            record.update(renderer_camera=renderer,
+                          render_synchronization={"accepted_attempt": attempt, "max_attempts": 10,
+                                                  "rejected_renderer_frames": renderer_rejections})
             self.last_reference = clock
-            record["renderer_camera"] = self._renderer_evidence()
             return rgb, record
+        if renderer_rejections:
+            raise RuntimeError(f"RGB renderer did not synchronize after 10 held-pose renders: {renderer_rejections[-1]['reason']}")
         raise RuntimeError("No fresh free RGB frame after 10 synchronized renders")
 
     def _renderer_evidence(self):

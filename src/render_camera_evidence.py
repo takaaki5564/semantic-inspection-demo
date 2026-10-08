@@ -6,6 +6,10 @@ from arm_camera_evidence import assert_pose_close
 from capture_metadata import rigid_transform
 
 
+class RenderCameraPosePending(ValueError):
+    """A rendered camera pose differs from the held USD pose; never accepted as evidence."""
+
+
 def validate_render_camera(parameters, camera):
     """CameraParams uses row-vector world-to-camera matrices; our poses use columns."""
     keys = ("cameraViewTransform", "cameraProjection", "cameraModel", "cameraFocalLength",
@@ -17,7 +21,10 @@ def validate_render_camera(parameters, camera):
     if not np.isfinite(view).all() or not np.isfinite(projection).all():
         raise ValueError("Nonfinite renderer camera matrices")
     world_camera = rigid_transform(np.linalg.inv(view.T))
-    error = assert_pose_close(world_camera, camera.T_world_camera, "RGB renderer/USD camera mismatch")
+    try:
+        error = assert_pose_close(world_camera, camera.T_world_camera, "RGB renderer/USD camera mismatch")
+    except ValueError as error:
+        raise RenderCameraPosePending(str(error)) from error
     aperture = np.asarray(data["cameraAperture"], dtype=float)
     focal = float(data["cameraFocalLength"])
     expected = 2*camera.focal_length_mm/np.array([camera.horizontal_aperture_mm, camera.vertical_aperture_mm])
