@@ -1,0 +1,24 @@
+{
+  "base_frame": "base_link",
+  "isaacsim_version": "6.1.0.0",
+  "model_file_sha256": {
+    "robot.urdf": "f71f8b8ba9b17111b775ba189806f960bc00987670e380f75cbe62e63ea9d110",
+    "robot.xrdf": "4c10f3c5e291ac57e4abc011ea99ee305d8471b72f56e413e331a315b8241dae"
+  },
+  "prototype_limits": {
+    "acceleration_rad_s2": 1.0,
+    "jerk_rad_s3": 10.0,
+    "source": "demo configuration choices, not manufacturer limits or validated motion settings",
+    "velocity_rad_s": 0.5
+  },
+  "schema_version": 1,
+  "scope": "kinematics only; visual/collision elements removed; no collision spheres in XRDF",
+  "source": "installed UR10e USD, exported with isaacsim.asset.exporter.urdf",
+  "source_layer_sha256": {
+    "configuration/ur10e_base.usd": "bb3d2a7e04865be4dbaa29c10694c277358e3f5f6a4727d03ad3575c5a9859e0",
+    "configuration/ur10e_physics.usd": "b0e8c15bb39bbfa2992e086bef41a504b1d2631aa59e08ba2941be40591a38ea",
+    "configuration/ur10e_robot.usd": "87cb444bbc2b4b3742e49169dd41f2c8bca855c9e4ac7d688559099e343c8b7b",
+    "ur10e.usd": "feea51f8943f1d4228df6ddd4e78c2a2eccd500aed576ac2887501409689d84c"
+  },
+  "tool_frame": "flange"
+}

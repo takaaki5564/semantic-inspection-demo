@@ -88,14 +88,14 @@ python -u src/arm_preflight.py --headless --output-dir outputs/arm_step1_headles
 2. `UR10E LOAD PASS` が出力される。
 3. JSONの `run_status` が `passed`、`robot.checks` がすべて `true`。
 
-ここで結果を確認して停止します。次のStep 2では、UR10e用モデルとUSDの座標・順運動学を照合します。同梱のcuMotion `ur10` は、このUR10eと寸法が異なるため、そのままIKに使いません。
+ここで結果を確認して停止します。次のStep 2では、UR10e用モデルとUSDの座標・順運動学を照合します。同梱のcuMotion `ur10` は、このUR10eと寸法が異なるため、そのままIKに使いません。Step 2の手順は [ARM_MODEL_RUNBOOK.md](ARM_MODEL_RUNBOOK.md) に記載しています。
 
 ## 開発時の確認結果（2026-10-08）
 
 - 既存環境でのヘッドレス起動：終了コード0、6関節、14 Mesh、期待するフランジ、全チェック成功、タイムライン0秒。
 - 確認結果：`outputs/arm_step1_codex_01/arm_preflight_report.json`。自動生成物なのでGitには含めません。
 - テスト：既存75件と新規4件、計79件が成功。新規テストでは、不完全なUSDの拒否、インスタンス内部のMesh取得、失敗時の終了コード・JSON、出力の上書き防止を確認。
-- ユーザーによるGUI表示確認は未完了。Step 2は未着手。
+- Step 1はその後ユーザーがGUI表示・出力を確認し、Step 2への進行を承認しました。GUI実行結果は `outputs/arm_step1_01/arm_preflight_report.json` に保存されています。
 
 ```bash
 python -B -m unittest discover -s tests -v

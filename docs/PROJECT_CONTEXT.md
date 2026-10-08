@@ -45,7 +45,8 @@ For the arm extension, define a constant `T_flange_camera` and compute `T_world_
 - Detected runtime: existing `env_isaac`, Python 3.12.3, Isaac Sim 6.1.0.0. The installed motion stack includes cuMotion; bundled legacy Lula APIs are deprecated.
 - A local UR10e USD is available inside `isaacsim.asset.transformer.rules/data/tests/ur10e/ur10e.usd`. This is a bundled test asset, not a verified production robot configuration. The bundled cuMotion `ur10` description differs from this UR10e and must not be silently reused.
 - Arm work starts after Day 4, in separately reviewed substeps. Step 1 only composes/displays the local robot and records USD joints/flange/meshes with the timeline stopped. Physics initialization, IK, controlled motion and camera mounting are subsequent steps, not Step 1 claims. See `docs/ARM_PREFLIGHT_RUNBOOK.md`.
-- Step 1 automated headless check passed on 2026-10-08 (6 joints, 14 populated meshes, expected flange, timeline 0 seconds). User GUI confirmation is pending; subsequent arm steps have not started.
+- Step 1 passed automated headless checking and user GUI/output review on 2026-10-08 (6 joints, 14 populated meshes, expected flange, timeline 0 seconds).
+- Step 2 adds a USD-derived UR10e URDF/XRDF and numerical FK comparison across 15 cases, including authored zero-pose validation and source/model hashes. This checks model conversion/coordinate consistency, not physical tracking or real robot calibration. See `docs/ARM_MODEL_RUNBOOK.md`. User Step 2 output review is pending; Step 3 controlled motion has not started.
 
 ## Explicitly deferred
 Camera-based shape/pose estimation, CAD registration, real-metal optics/reflection/oil, scratch-vs-machining-mark classification, depth measurement, grasp/regrasp, robot safety validation, full cycle-time guarantee, expert approval workflow, production-grade defect detection, LLM-driven ontology generation and RL.
