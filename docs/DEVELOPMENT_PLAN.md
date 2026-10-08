@@ -69,6 +69,14 @@ The proposal's Day 2–4 items are requirements to reconcile with current code, 
 
 Do not add arbitrary mesh segmentation, complex face-material assignment, high-resolution heatmaps, advanced transparency or a separate visualization application. Preserve the existing camera executors, evaluator and planner design. Visualization work must not delay reliable capture/motion/replanning or the submission demo. The basic Day 5 controls and recipe candidate remain required and use the same session/controller/state as the region list.
 
+## Follow-up after GUI completion — turntable proposal (ndeo-v4)
+
+The user requested this follow-up after the GUI implementation is complete. Finish the current Day 5 GUI work and its output review first, then review every proposal in `/home/ishii/Downloads/ndeo-v4`. The folder currently contains `codex rotation base.txt`; only its existence has been checked at this stage.
+
+Review the proposed turntable specifications against the implementation available at that time. Produce an implementation plan covering the intended behavior, reusable modules, required file changes, staged steps, verification commands, acceptance criteria, risks and effects on the remaining schedule. Update existing project/design documents where the reviewed specifications require changes. Preserve the working free-camera and UR10e inspection flows and the black, lightweight GUI requirements.
+
+This follow-up covers specification review, implementation planning and necessary documentation updates. Present the results for review before starting turntable implementation. Choose the implementation insertion point after examining the proposal; no turntable specification or implementation schedule is established by this placeholder.
+
 ## Day 6 — Test and compare
 Run fixed-view baseline and planned-view approach on same A/B cases; test geometry changes, no available view, motion disabled, spec switch reset, part transform and replay determinism.
 If Day 4.5 passes, also compare the two executors and test IK failure, unreachable goals, motion timeout, fixed camera mounting and pose errors. Collision safety and real-world robot performance remain unvalidated.

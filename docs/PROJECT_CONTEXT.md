@@ -70,6 +70,8 @@ Priority is a right-side region list (ID, name, observation state, cumulative co
 Reuse actual `SurfaceRegion` IDs/Prim mappings, cumulative sample-point observations and closed-loop events for both free/arm executors. A/B or specification changes reset incompatible state. Keep inspection part materials intact and isolate visualization from RGB, shadows, ray geometry and physics; modifying the original marker material would affect captured images. The exact 3D isolation API must be checked in the installed Isaac Sim runtime before implementation. Detailed heatmaps, arbitrary mesh segmentation and a separate visualization application are out of scope.
 
 ## Future extension story
+The user has queued a turntable proposal review from `/home/ishii/Downloads/ndeo-v4` after GUI implementation is complete. At that point, review all supplied specifications against the current code, prepare a staged implementation plan and update existing documents as needed. Only the source folder/file existence has been checked so far; detailed specifications remain to be reviewed. See the follow-up checkpoint in `docs/DEVELOPMENT_PLAN.md`.
+
 The same requirement -> missing evidence -> eligible action -> new observation loop can later support lighting changes, additional measurements, regrasping, uncertain pose active perception, human escalation, validated inspection recipes and real-world robot control. Each requires separate technical validation.
 
 ## Evaluation
