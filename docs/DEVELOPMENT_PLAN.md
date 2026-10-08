@@ -71,11 +71,19 @@ Do not add arbitrary mesh segmentation, complex face-material assignment, high-r
 
 ## Follow-up after GUI completion — turntable proposal (ndeo-v4)
 
-The user requested this follow-up after the GUI implementation is complete. Finish the current Day 5 GUI work and its output review first, then review every proposal in `/home/ishii/Downloads/ndeo-v4`. The folder currently contains `codex rotation base.txt`; only its existence has been checked at this stage.
+The user requested this follow-up after the GUI implementation is complete. Finish the current Day 5 GUI work and its output review first, then review the turntable-related proposals in `/home/ishii/Downloads/ndeo-v4`. The folder currently contains `codex rotation base.txt`; only its existence has been checked at this stage. GUI rendering performance requirements from the same folder have a separate, later checkpoint below.
 
 Review the proposed turntable specifications against the implementation available at that time. Produce an implementation plan covering the intended behavior, reusable modules, required file changes, staged steps, verification commands, acceptance criteria, risks and effects on the remaining schedule. Update existing project/design documents where the reviewed specifications require changes. Preserve the working free-camera and UR10e inspection flows and the black, lightweight GUI requirements.
 
 This follow-up covers specification review, implementation planning and necessary documentation updates. Present the results for review before starting turntable implementation. Choose the implementation insertion point after examining the proposal; no turntable specification or implementation schedule is established by this placeholder.
+
+## Follow-up after turntable completion — GUI rendering performance investigation
+
+The user requested an additional review of GUI rendering performance requirements from `/home/ishii/Downloads/ndeo-v4` after turntable implementation is complete. Start this checkpoint after the reviewed turntable implementation and its verification are complete. Re-read the folder's latest contents at that time to identify the performance requirements; their detailed contents have not been reviewed yet.
+
+Begin with performance investigation of the completed GUI/turntable baseline. Record the runtime, display/render settings and repeatable scenarios, then measure GUI frame rate/frame time, responsiveness and CPU/GPU/memory use during idle, motion and capture/update phases. Distinguish wall-clock GUI/render timing from simulation time and physics steps, and account for measurement overhead.
+
+Use measured results to identify bottlenecks, assess the supplied requirements, propose improvements and verification criteria, and update the relevant documents as needed. Preserve valid RGB capture, measured poses, observation state and both camera executors throughout the investigation. Performance targets and optimization changes will be determined from the requirements and measurements at this checkpoint.
 
 ## Day 6 — Test and compare
 Run fixed-view baseline and planned-view approach on same A/B cases; test geometry changes, no available view, motion disabled, spec switch reset, part transform and replay determinism.
