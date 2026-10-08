@@ -50,13 +50,16 @@ Review checkpoints:
 Gate: actual camera mounting, controlled motion, fresh captures and observation updates pass; existing Day 1–4 behavior still works. If not, retain free-camera mode as the submission baseline.
 
 ## Day 5 — Simple display and recipe candidate
+
+Before GUI implementation, review `docs/GUI_IMPROVEMENT_PROPOSAL.md` and its wireframe. The latest user instruction resolves ordering: stabilize Day 4.5c capture first, then review the GUI proposal, then implement the shared step controller/region state and integrate the basic GUI with the mandatory region list. Do not build a separate basic GUI first and retrofit region-state logic later. GUI runtime work has not started.
+
 Add minimal controls for part A/B, spec X/Y, step/run/reset. Show current RGB, observed/missing regions, next action and reason. Save event log and recipe candidate. Optional synthetic line detection only if stable.
 Add free-camera/UR10e mode selection only if Day 4.5 passes; include target/actual camera pose, controller status and blocked reason in saved evidence.
 Acceptance: demo understandable without reading source; outputs persist.
 
 ### Region visualization amendment — nedo-v3
 
-All three proposal documents from `/home/ishii/Downloads/nedo-v3` have been reviewed. See `docs/REGION_VISUALIZATION_DESIGN.md` for responsibilities, state semantics, proposed modules, isolation and acceptance checks. Design/plan updates are complete; visualization implementation has not started. The user's latest instruction schedules it after the preceding implementation completes. The exact insertion point (immediately after Day 4.5c versus after the basic Day 5 UI/recipe implementation) is being clarified; do not silently mark either prerequisite complete.
+All three proposal documents from `/home/ishii/Downloads/nedo-v3` have been reviewed. See `docs/REGION_VISUALIZATION_DESIGN.md` for responsibilities, state semantics, proposed modules, isolation and acceptance checks. Design/plan updates and a concrete GUI improvement proposal are available; visualization implementation has not started. Fix the reported missing rear capture before the GUI work. Review the GUI proposal, then introduce the common step controller and region state, followed by one integrated basic GUI/region-list implementation. Day 4.5c user output review remains pending.
 
 The proposal's Day 2–4 items are requirements to reconcile with current code, not a request to restart completed days. Region IDs, separate R1/R2 marker Prims, sample points, cumulative coverage and actual free/arm observation events already exist. Region names, explicit per-region display states and the GUI list remain to be added. Existing overall session statuses and planner decisions retain their meanings.
 
@@ -64,7 +67,7 @@ The proposal's Day 2–4 items are requirements to reconcile with current code, 
 2. **Step 2 — preferred visual approach:** use one display USD Prim per region and shared state colors (gray/yellow/green/red). Verify separation from inspection RGB, shadows, ray geometry and physics before adopting it. Next-target highlighting is presentation only. Keep existing inspection materials and semantic region mappings.
 3. **Step 3 — fallback only:** if Step 2 isolation is difficult or takes too long, keep the mandatory list and show a fixed-view schematic with the same state/colors. Completing both Step 2 and Step 3 is unnecessary.
 
-Do not add arbitrary mesh segmentation, complex face-material assignment, high-resolution heatmaps, advanced transparency or a separate visualization application. Preserve the existing camera executors, evaluator and planner design. Visualization work must not delay reliable capture/motion/replanning or the submission demo. The basic Day 5 controls and recipe candidate remain required in the overall plan, with their ordering resolved against the user's preceding-implementation instruction.
+Do not add arbitrary mesh segmentation, complex face-material assignment, high-resolution heatmaps, advanced transparency or a separate visualization application. Preserve the existing camera executors, evaluator and planner design. Visualization work must not delay reliable capture/motion/replanning or the submission demo. The basic Day 5 controls and recipe candidate remain required and use the same session/controller/state as the region list.
 
 ## Day 6 — Test and compare
 Run fixed-view baseline and planned-view approach on same A/B cases; test geometry changes, no available view, motion disabled, spec switch reset, part transform and replay determinism.
