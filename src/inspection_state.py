@@ -15,6 +15,7 @@ class ObservationState:
         self.observed = {region: set() for region in required}
         self.capture_ids = []
         self.evaluated_capture_ids = []
+        self._last_evidence = {region: {} for region in required}
 
     def record_capture(self, capture_id):
         if capture_id in self.capture_ids:
@@ -45,7 +46,17 @@ class ObservationState:
         # Validate the complete report before mutating any observation state.
         for region, visible in updates.items():
             self.observed[region].update(visible)
+            self._last_evidence[region] = {
+                point["point_id"]: {"reason": point["reason"], "capture_id": capture_id}
+                for point in report["regions"][region]["points"]}
         self.evaluated_capture_ids.append(capture_id)
+
+    def missing_evidence(self):
+        """Latest evaluated cause for each still-missing point; never a defect label."""
+        return {region: {point_id: dict(self._last_evidence[region].get(
+                    point_id, {"reason": "not_evaluated", "capture_id": None}))
+                         for point_id in sorted(required - self.observed[region])}
+                for region, required in self.required.items()}
 
     def summary(self):
         satisfied = all(self.observed[region] >= required for region, required in self.required.items())

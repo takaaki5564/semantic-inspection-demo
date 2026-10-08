@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "knowledge_version": "inspection_demo_v1",
+  "source": "manually_authored_demo_knowledge",
+  "approval_status": "prototype_not_approved",
+  "specifications": {
+    "X": {"version": "spec_X_v1", "required_region_ids": ["R1"]},
+    "Y": {"version": "spec_Y_v1", "required_region_ids": ["R1", "R2"]}
+  },
+  "observation_states": [
+    "not_captured", "captured", "missing_observation", "inspection_observation_satisfied"
+  ],
+  "capabilities": {
+    "camera_pose_change": {"description": "Set the virtual camera pose; no robot safety claim"}
+  },
+  "methods": {
+    "change_viewpoint": {"required_capability_ids": ["camera_pose_change"]}
+  },
+  "missing_observation_causes": {
+    "self_occlusion": {"eligible_method_ids": ["change_viewpoint"]}
+  }
+}

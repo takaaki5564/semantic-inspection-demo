@@ -86,6 +86,37 @@ class ObservationStateTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 ObservationState("geometry_a", "spec_v1", required)
 
+    def test_missing_causes_require_evaluation_and_do_not_include_observed_points(self):
+        self.assertEqual(self.state.missing_evidence()["R1"]["R1:000"],
+                         {"reason": "not_evaluated", "capture_id": None})
+        self.state.record_capture("first")
+        self.state.apply_visibility("first", report())
+        self.assertEqual(self.state.missing_evidence(), {"R1": {
+            "R1:001": {"reason": "self_occlusion", "capture_id": "first"}}})
+        self.state.record_capture("not_evaluated_yet")
+        self.assertEqual(self.state.missing_evidence()["R1"]["R1:001"]["capture_id"], "first")
+        self.state.record_capture("second")
+        self.state.apply_visibility("second", report(visible_ids=("R1:001",)))
+        self.assertEqual(self.state.missing_evidence(), {"R1": {}})
+
+    def test_missing_evidence_is_copied_and_reset_with_context(self):
+        self.state.record_capture("first")
+        self.state.apply_visibility("first", report())
+        snapshot = self.state.missing_evidence()
+        snapshot["R1"]["R1:001"]["reason"] = "tampered"
+        self.assertEqual(self.state.missing_evidence()["R1"]["R1:001"]["reason"], "self_occlusion")
+        self.state.reset("geometry_b", "spec_v2", self.required)
+        self.assertTrue(all(value["reason"] == "not_evaluated" for value in self.state.missing_evidence()["R1"].values()))
+
+    def test_invalid_evaluation_does_not_replace_missing_causes(self):
+        self.state.record_capture("first")
+        self.state.apply_visibility("first", report())
+        self.state.record_capture("second")
+        before = self.state.missing_evidence()
+        with self.assertRaises(ValueError):
+            self.state.apply_visibility("second", report(spec="different_spec"))
+        self.assertEqual(self.state.missing_evidence(), before)
+
 
 if __name__ == "__main__":
     unittest.main()

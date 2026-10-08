@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "source": "manually_authored_demo_candidates",
+  "approval_status": "prototype_not_approved",
+  "coordinate_frame": "part",
+  "length_unit": "meter",
+  "rotation_cost_m_per_rad": 0.1,
+  "views": [
+    {"view_id": "front", "eye_part_m": [0.85, -1.05, 0.75], "target_part_m": [0, 0, 0.08]},
+    {"view_id": "rear", "eye_part_m": [0.85, 1.05, 0.75], "target_part_m": [0, 0, 0.08]},
+    {"view_id": "high", "eye_part_m": [0.85, -1.05, 1.4], "target_part_m": [0, 0, 0.08]}
+  ]
+}
