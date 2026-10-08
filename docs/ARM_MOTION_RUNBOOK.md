@@ -134,7 +134,7 @@ python -u src/arm_motion_check.py --headless --output-dir outputs/arm_step3_head
 ## 開発時の確認結果（2026-10-08）
 
 - ヘッドレス：`outputs/arm_step3_codex_03/arm_motion_report.json`。2地点とも到達・静止成功。
-- GUIの自動実行：`outputs/arm_step3_codex_gui_01/arm_motion_report.json`。2地点とも成功し、結果保存後に自動終了。ユーザーの目視確認は未完了です。
+- GUIの自動実行：`outputs/arm_step3_codex_gui_01/arm_motion_report.json`。2地点とも成功し、結果保存後に自動終了。その後ユーザーが手先カメラ工程への進行を承認しました。手先カメラ単体確認の手順は [ARM_CAMERA_RUNBOOK.md](ARM_CAMERA_RUNBOOK.md) を参照してください。
 - 実フランジの位置誤差は約 `0.80 mm` と `0.65 mm`、向きの誤差は約 `0.000864 rad` と `0.000600 rad`。両地点で0.25秒の静止を確認しました。
 - 到達不能な最初の目標を使った実行では `blocked / ik_failed`、関節目標指令・当該目標の物理ステップとも0で停止し、2地点目には進みませんでした。結果：`outputs/arm_step3_codex_blocked_01/arm_motion_report.json`、終了コード2。
 - 新規テストは、指令制限、座標変換、IK失敗・範囲外・残差、実手先のずれ、未移動、未静止、時計停止、時間上限、固定ベース移動、モデル改変、出力上書き防止、保存失敗を確認します。既存と合わせて103テスト成功。
