@@ -4,9 +4,9 @@ NEDO応募用の動的3D検査デモ。品種変更による自己遮蔽を示�
 検査仕様と未観測情報から追加視点を選ぶループを7日間で段階的に実装する。
 
 現時点ではDay 1の2視点RGB撮影、Day 2の部品A/B・幾何可視性比較、
-Day 3の検査仕様X/Y・知識・候補視点プランナを実装。
+Day 3の検査仕様X/Y・知識・候補視点プランナ、Day 4の計画からのカメラ移動・再撮影・観測更新を実装。
 形状・領域はシミュレータ既知情報。欠陥検出、画像ベースの形状・姿勢推定、
-計画からの自動カメラ移動・再撮影ループ、実機制御は未実装。
+実機制御は未実装。
 
 ## 確認済み環境
 
@@ -44,6 +44,17 @@ python src/day3_plan.py --input-dir outputs/day2-run-01b
 Bでも仕様Xは追加視点不要、仕様YはR2を改善する視点を選択。
 移動能力なし／改善する候補なしはblocked。予測だけでは観測済み点を増やさない。
 
+Day 4は選択した視点への移動・新しい撮影・観測更新・再計画を自動実行する。
+
+```bash
+python -u src/day4_closed_loop.py --part B --spec Y
+```
+
+B・Yは追加視点で観測を増やして停止。Aは `--part A`、R1だけの仕様は `--spec X` で指定する。
+結果は `outputs/day4_run_01` に画像・イベント・レポートとして保存する。
+再実行は新しい `--output-dir` を指定する。`--headless` または `--exit-after-run` で自動終了。
+詳細と能力なし／上限の確認手順はDay 4手順を参照。
+
 ## 検証
 
 以下はIsaac Simを起動せずに実行できる。
@@ -52,6 +63,7 @@ Bでも仕様Xは追加視点不要、仕様YはR2を改善する視点を選択
 python -m unittest discover -s tests -v
 python src/verify_day1.py outputs/day1_run_01
 python src/verify_day2.py outputs/day2_run_01
+python src/verify_day4.py outputs/day4_run_01
 ```
 
 Day 2では同じ初期視点でAのR2が63/63点、BのR2が3/63点可視となり、
@@ -65,6 +77,7 @@ Day 2では同じ初期視点でAのR2が63/63点、BのR2が3/63点可視とな
 - [Day 1の手順・座標規約](docs/DAY1_RUNBOOK.md)
 - [Day 2の手順・可視性・制限](docs/DAY2_RUNBOOK.md)
 - [Day 3の手順・知識・計画結果の読み方](docs/DAY3_RUNBOOK.md)
+- [Day 4の手順・実カメラ移動と観測更新・停止条件](docs/DAY4_RUNBOOK.md)
 - [開発ルール](AGENTS.md)
 
 撮影画像・ログ・実行時キャッシュはGit管理対象から除外する。
