@@ -10,6 +10,8 @@ from capture_metadata import reference_time, rigid_transform
 
 
 class ArmCameraAdapter(ArmMotionAdapter):
+    PART_PATH = "/World/CaptureBoard"
+
     def __init__(self, app, asset, model_dir, reference, *, headless):
         super().__init__(app, asset, model_dir, reference, headless=headless)
         import omni.replicator.core as rep
@@ -22,18 +24,11 @@ class ArmCameraAdapter(ArmMotionAdapter):
         self.rep = rep
         self.timeline = omni.timeline.get_timeline_interface()
         self.stage = omni.usd.get_context().get_stage()
-        self.PART_PATH = "/World/CaptureBoard"
         self.CAMERA_PATH = FLANGE_PATH + "/WristCamera"
         self.mount = rigid_transform(DEFAULT_MOUNT).copy()
         self.sensor, self.reference_annotator = None, None
         self.last_reference, self.render_steps = None, 0
-        board = UsdGeom.Xform.Define(self.stage, self.PART_PATH)
-        board.AddTranslateOp().Set(Gf.Vec3d(1.05, 0.3, 0.3))
-        self._cube(self.PART_PATH+"/Plate", (0,0,-0.02), (1.2,1.2,0.04), (0.7,0.7,0.7))
-        tiles = [(-0.25,-0.3,(0.8,0.1,0.1)), (0.25,-0.3,(0.1,0.7,0.1)),
-                 (-0.25,0.3,(0.1,0.2,0.8)), (0.25,0.3,(0.8,0.6,0.1))]
-        for i,(x,y,color) in enumerate(tiles):
-            self._cube(self.PART_PATH+f"/Tile{i}", (x,y,0.002), (0.42,0.42,0.004), color)
+        self._create_target()
         self.world_part = self.world_transform(self.PART_PATH)
         # Display geometry is flange-local; no rigid-body/mass or collision properties are added.
         self._cube(FLANGE_PATH+"/CameraBracket", (0.09,0,0.1), (0.18,0.03,0.025), (0.25,0.28,0.3))
@@ -62,6 +57,17 @@ class ArmCameraAdapter(ArmMotionAdapter):
                                 "gui_view": "external OverviewCamera; sensor is not used for interactive navigation",
                                 "mount_geometry": "visual only; attached camera mass and collision not modeled",
                                 "capture": "stopped timeline; reference time set to held physics time; render delta_time=0"}
+
+    def _create_target(self):
+        from pxr import Gf, UsdGeom
+
+        board = UsdGeom.Xform.Define(self.stage, self.PART_PATH)
+        board.AddTranslateOp().Set(Gf.Vec3d(1.05, 0.3, 0.3))
+        self._cube(self.PART_PATH+"/Plate", (0,0,-0.02), (1.2,1.2,0.04), (0.7,0.7,0.7))
+        tiles = [(-0.25,-0.3,(0.8,0.1,0.1)), (0.25,-0.3,(0.1,0.7,0.1)),
+                 (-0.25,0.3,(0.1,0.2,0.8)), (0.25,0.3,(0.8,0.6,0.1))]
+        for i,(x,y,color) in enumerate(tiles):
+            self._cube(self.PART_PATH+f"/Tile{i}", (x,y,0.002), (0.42,0.42,0.004), color)
 
     def _cube(self, path, position, dimensions, color):
         from pxr import Gf, UsdGeom

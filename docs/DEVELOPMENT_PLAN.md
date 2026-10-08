@@ -34,7 +34,11 @@ Gate: two controlled arm motions and model consistency pass, and the user approv
 
 ## Day 4.5 — Arm-camera integration (conditional on preflight)
 
-Review checkpoints: **4.5a (current; implemented, user output review pending)** independently verifies a fixed flange camera, common camera-pose executor interface, pose conversion, two controlled motions and held-pose RGB/actual pose capture. See `docs/ARM_CAMERA_RUNBOOK.md`. **4.5b (pending)** connects the A/B inspection scene, reachability and moving-arm visibility. Closed-loop comparison is pending; the full Day 4.5 gate is not yet satisfied.
+Review checkpoints:
+
+- **4.5a (complete; user approved proceeding)** independently verifies a fixed flange camera, common camera-pose executor interface, pose conversion, two controlled motions and held-pose RGB/actual pose capture. See `docs/ARM_CAMERA_RUNBOOK.md`.
+- **4.5b (current; implemented, user output review pending)** independently connects A/B inspection geometry, IK candidate screening and moving-arm visibility. Both parts share a fixed cell placement and the existing part-relative camera candidates. Actual captures update observation state using visible robot instance Meshes; static geometry and moving-scene hashes are checked separately. Two explicit front/rear diagnostic views pass for B/Y headless and A/Y GUI. Infeasible requested views stop before motion/capture. See `docs/ARM_INSPECTION_RUNBOOK.md`.
+- **4.5c (pending; requires next user approval)** connect the reachability filter and camera executors to closed-loop planner selection; stop after initial observation when requirements are satisfied. Compare free/arm execution with the same cell, optics, part/spec and camera goals. Do not predict future robot occlusion using stale current-arm geometry. The full Day 4.5 gate is not yet satisfied.
 
 1. Introduce a common camera-pose executor interface while retaining the existing free-camera behavior and defaults.
 2. Add UR10e execution and rigid flange-mounted RGB camera; define and verify `T_flange_camera`.

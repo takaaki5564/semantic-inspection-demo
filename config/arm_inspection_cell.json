@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source": "manually_authored_demo_cell; original part-relative camera candidates retained",
+  "approval_status": "prototype_not_approved",
+  "length_unit": "meter",
+  "ik_seed_postures_rad": [
+    [0, -1, 1.5, -1, 0, 0],
+    [-1.5, -1, 1.5, -1, -1, 2.5],
+    [1.5, -1, 1.5, -1, -1, -2.5]
+  ],
+  "preferred_ik_posture_rad": [0, -1, 1.5, -1, -1, 0],
+  "ik_policy": "Try actual joints plus fixed robot-only seed postures. Prefer solution closest in wrapped joint distance to reference posture, then actual joints. Seeds are numerical initial values only; never set robot joints to seeds. No obstacle avoidance.",
+  "T_world_part": [
+    [1, 0, 0, -0.6],
+    [0, 1, 0, 0],
+    [0, 0, 1, 0.25],
+    [0, 0, 0, 1]
+  ],
+  "description": "Same A/B geometry and camera goals as Day 2-4; both parts share this fixed cell placement. Robot base remains at world (0,0,0.4). This is not a collision-validated layout."
+}
