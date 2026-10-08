@@ -79,6 +79,26 @@ class CameraLoopRunnerTests(unittest.TestCase):
             self.assertIn("disk full",stderr.getvalue())
             app.close.assert_called_once_with(exit_code=1)
 
+    def test_single_step_saves_paused_report_without_claiming_completion(self):
+        with tempfile.TemporaryDirectory() as folder:
+            _,output,modules,app,_,args = self.fixture(folder)
+            session = {"status":"paused", "captures":[{}], "actions_executed":0}
+            controller = Mock()
+            controller.report.return_value = session
+            stdout = StringIO()
+            with patch.dict(sys.modules,modules),patch.object(runner.importlib.metadata,"version",return_value="6.1.0.0"), \
+                    patch.object(runner,"CameraInspectionSession",return_value=controller), \
+                    patch.object(runner,"run_camera_session") as continuous,redirect_stdout(stdout):
+                self.assertEqual(runner.main(args+["--single-step"]),0)
+            controller.step.assert_called_once_with()
+            continuous.assert_not_called()
+            report = json.loads((output/"camera_loop_report.json").read_text())
+            self.assertEqual(report["run_status"],"paused")
+            self.assertEqual(report["control_mode"],"single_step")
+            self.assertNotIn("CAMERA LOOP PASSED",stdout.getvalue())
+            self.assertIn("CAMERA LOOP PAUSED",stdout.getvalue())
+            app.close.assert_called_once_with(exit_code=0)
+
 
 if __name__ == "__main__":
     unittest.main()

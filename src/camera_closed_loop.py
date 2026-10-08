@@ -16,7 +16,7 @@ from arm_camera_check import load_motion_evidence
 from arm_inspection_check import ROOT, read_camera_evidence, write_json
 from camera_executors import ArmMountedCameraExecutor, FreeCameraExecutor
 from capture_metadata import CONVENTIONS, prepare_output_directory, rigid_transform
-from executor_closed_loop import run_camera_session
+from executor_closed_loop import CameraInspectionSession, run_camera_session
 from inspection_knowledge import InspectionKnowledge
 from part_geometry import PARTS
 from viewpoint_planner import load_viewpoints
@@ -62,6 +62,7 @@ def main(argv=None):
     parser.add_argument("--output-dir", type=Path, default=ROOT/"outputs/camera_loop_01")
     parser.add_argument("--headless", action="store_true")
     parser.add_argument("--exit-after-run", action="store_true")
+    parser.add_argument("--single-step", action="store_true", help="Run only the initial observation/next-plan cycle for review")
     args = parser.parse_args(argv)
     try:
         version = importlib.metadata.version("isaacsim")
@@ -104,6 +105,7 @@ def main(argv=None):
                "max_actions":args.max_actions, "available_capability_ids":list(capabilities),
                "rotation_cost_m_per_rad":weight}
     report = {"schema_version":1, "demo_step":"camera_executor_closed_loop", "run_status":"running",
+              "control_mode":"single_step" if args.single_step else "continuous",
               "created_utc":datetime.now(timezone.utc).isoformat(), "executor":args.executor,
               "comparison_context":context, "cell_configuration":cell, "viewpoint_configuration":view_document,
               "step3_report":motion_source, "camera_report":camera_source, "inspection_report":inspection_source,
@@ -178,6 +180,11 @@ def main(argv=None):
                         print(f"CANDIDATE | {item['view_id']} | {item['status']} | {item['reason']}",flush=True)
                 elif kind in ("movement_started","movement_blocked","session_stopped"):
                     print(f"{kind.upper()} | {event.get('view_id','')} | {event.get('reason','')}",flush=True)
+                elif kind == "step_completed":
+                    snapshot = event["snapshot"]
+                    write_json(output/f"step_{snapshot['steps_completed']:02d}.json", snapshot)
+                    counts = ", ".join(f"{r['region_id']}={r['state']}" for r in snapshot["region_states"])
+                    print(f"STEP | {snapshot['steps_completed']} | {snapshot['status']} | {counts}",flush=True)
             motion_sequence = 0
             def save_motion(event):
                 nonlocal motion_sequence
@@ -186,14 +193,21 @@ def main(argv=None):
                 if event["event"] != "physics_sample":
                     motions.flush()
             started = time.perf_counter()
-            session = run_camera_session(adapter,executor,knowledge,args.spec,candidates,initial,
+            run_session = run_camera_session
+            if args.single_step:
+                def run_session(*positional, **options):
+                    controller = CameraInspectionSession(*positional, **options)
+                    controller.step()
+                    return controller.report()
+            session = run_session(adapter,executor,knowledge,args.spec,candidates,initial,
                                           session_id=f"{args.executor}_{args.part}_{args.spec}",max_actions=args.max_actions,
                                           available_capabilities=capabilities,rotation_cost_m_per_rad=weight,
                                           on_event=save_event,on_motion=save_motion,on_capture=save_capture,on_prediction=save_prediction)
             report["elapsed_loop_seconds"] = time.perf_counter()-started
         report["session"] = session
-        report["run_status"] = "passed" if session["status"] == "inspection_observation_satisfied" else "blocked"
-        exit_code = 0 if report["run_status"] == "passed" else 2
+        report["run_status"] = ("passed" if session["status"] == "inspection_observation_satisfied"
+                                else "paused" if session["status"] == "paused" else "blocked")
+        exit_code = 0 if report["run_status"] in ("passed", "paused") else 2
     except (Exception,KeyboardInterrupt) as error:
         exit_code = 130 if isinstance(error,KeyboardInterrupt) else 1
         report.update(run_status="failed",error=str(error))
@@ -203,7 +217,7 @@ def main(argv=None):
         try:
             write_json(output/"camera_loop_report.json",report)
             print(f"REPORT | {output/'camera_loop_report.json'}",flush=True)
-            if report["run_status"] in ("passed","blocked"):
+            if report["run_status"] in ("passed","blocked","paused"):
                 session = report["session"]
                 print(f"CAMERA LOOP {report['run_status'].upper()} | executor={args.executor} | captures={len(session['captures'])} | additional_actions={session['actions_executed']}",flush=True)
             if app is not None and not args.headless and not args.exit_after_run:

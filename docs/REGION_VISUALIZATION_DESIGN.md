@@ -8,15 +8,15 @@
 - `/home/ishii/Downloads/nedo-v3/検査対象部位の状態管理と可視化.md`
 - `/home/ishii/Downloads/nedo-v3/追加開発計画-検査対象部位の可視化.md`
 
-依頼文書には設計・計画を先に更新する段階が記載されています。最新のユーザー指示に合わせ、現在の撮影問題を解消し、[GUI改善案](GUI_IMPROVEMENT_PROPOSAL.md)を確認してから実装します。基本GUIと部位一覧を共通のコア制御・状態モデルで設計し、後から状態管理を組み直すことを避けます。この文書の可視化機能はまだ未実装です。
+依頼文書には設計・計画を先に更新する段階が記載されています。最新のユーザー指示に合わせ、現在の撮影問題を解消し、[GUI改善案](GUI_IMPROVEMENT_PROPOSAL.md)を確認してから実装します。基本GUIと部位一覧を共通のコア制御・状態モデルで設計し、後から状態管理を組み直すことを避けます。GUI案は承認済みです。共通1ステップ制御と部位状態のコアを実装し、画面への組込みはその出力確認後に進めます。
 
-現在はDay 4.5cまで実装済みで、ユーザーの出力確認待ちです。Day 5の基本GUI・レシピ候補は未実装です。提案書のDay 2〜4をやり直すのではなく、既存部分を再利用して不足を追加します。
+Day 4.5cの撮影同期修正後、承認されたDay 5のコア工程を実装しています。基本GUI・レシピ候補は次の工程です。提案書のDay 2〜4をやり直すのではなく、既存部分を再利用して不足を追加します。
 
 | 現行実装 | 再利用できる情報／追加が必要なもの |
 |---|---|
 | `src/part_geometry.py`の`SurfaceRegion` | region_id、Prim・面、評価点。部位名称は別途必要 |
 | `src/arm_inspection_adapter.py`などのシーン | `/World/Part/R1Marker`、`R2Marker`が既に別Prim。元の緑／橙色は検査RGBにも写る |
-| `src/inspection_state.py`の`ObservationState` | 有効な実観測点の集合、評価履歴、部位別累積coverage、仕様／形状切替時のreset。部位別状態名は未実装 |
+| `src/inspection_state.py`の`ObservationState` | 有効な実観測点の集合、評価履歴、部位別累積coverage、仕様／形状切替時のreset。部位別状態名は`inspection_region_state.py`で導出 |
 | `src/visibility.py`・`src/arm_inspection.py` | 実カメラ・実形状からの観測評価、画像／時刻の整合性確認 |
 | `src/viewpoint_planner.py` | 選択した視点と`predicted_new_point_ids`。次の撮影対象表示の根拠 |
 | `src/executor_closed_loop.py` | 初期化・観測反映・計画・移動・停止イベント。両方式に共通 |
@@ -40,7 +40,7 @@ GUI内で可視性やcoverageを再計算しません。仮想カメラ／UR10e�
 
 `coverage = 累積で有効に観測できた評価点の数 / その部位の必要評価点の数`です。同じ点の重複観測は加算しません。現在の仕様では対象部位の全63点が必要です。任意の成功割合を埋め込みません。
 
-提案の`unconfirmed`、`partial`、`needs_recheck`には説明上重なる部分があるため、Step 1で評価器に実装する判定案を以下とします。これは未実装の設計であり、既存の判定結果を変更したものではありません。
+提案の`unconfirmed`、`partial`、`needs_recheck`には説明上重なる部分があるため、Step 1で評価器に実装する判定案を以下とします。この定義を`inspection_region_state.py`へ実装しました。既存の全体セッション判定は維持します。
 
 | 状態 | 判定案（上から優先） | 表示色 |
 |---|---|---|

@@ -2,12 +2,12 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1152pt" height="720pt" viewBox="0 0 1152 720" xmlns="http://www.w3.org/2000/svg" version="1.1">
- <title>NEDO inspection GUI proposal (not implemented)</title>
+ <title>NEDO inspection GUI proposal (approved dark theme; runtime GUI pending)</title>
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:title>NEDO inspection GUI proposal (not implemented)</dc:title>
+    <dc:title>NEDO inspection GUI proposal (approved dark theme; runtime GUI pending)</dc:title>
     <dc:date>2026-10-08</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
@@ -28,7 +28,7 @@ L 1152 720
 L 1152 0
 L 0 0
 z
-" style="fill: #edf1f5"/>
+" style="fill: #090a0c"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
@@ -42,7 +42,7 @@ Q 0 51.84 0 51.84
 L 0 0
 Q 0 0 0 0
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #17334c; stroke: #17334c; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #08090b; stroke: #08090b; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 26.64 61.92
@@ -55,7 +55,7 @@ Q 21.6 90 21.6 84.96
 L 21.6 66.96
 Q 21.6 61.92 26.64 61.92
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #c7d4df; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #333b46; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 172.08 61.92
@@ -68,7 +68,7 @@ Q 167.04 90 167.04 84.96
 L 167.04 66.96
 Q 167.04 61.92 172.08 61.92
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #c7d4df; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #333b46; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 285.12 61.92
@@ -81,7 +81,7 @@ Q 280.08 90 280.08 84.96
 L 280.08 66.96
 Q 280.08 61.92 285.12 61.92
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #c7d4df; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #333b46; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 444.96 61.92
@@ -94,7 +94,7 @@ Q 439.92 90 439.92 84.96
 L 439.92 66.96
 Q 439.92 61.92 444.96 61.92
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #c7d4df; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #333b46; stroke-linejoin: miter"/>
    </g>
    <g id="patch_7">
     <path d="M 525.6 61.92
@@ -107,7 +107,7 @@ Q 520.56 90 520.56 84.96
 L 520.56 66.96
 Q 520.56 61.92 525.6 61.92
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #1878b8; stroke: #1878b8; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #80b8ff; stroke: #80b8ff; stroke-linejoin: miter"/>
    </g>
    <g id="patch_8">
     <path d="M 620.64 61.92
@@ -120,7 +120,7 @@ Q 615.6 90 615.6 84.96
 L 615.6 66.96
 Q 615.6 61.92 620.64 61.92
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #c7d4df; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #333b46; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
     <path d="M 712.08 61.92
@@ -133,7 +133,7 @@ Q 707.04 90 707.04 84.96
 L 707.04 66.96
 Q 707.04 61.92 712.08 61.92
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #c7d4df; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #333b46; stroke-linejoin: miter"/>
    </g>
    <g id="patch_10">
     <path d="M 810.72 61.92
@@ -146,7 +146,7 @@ Q 805.68 90 805.68 84.96
 L 805.68 66.96
 Q 805.68 61.92 810.72 61.92
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #c7d4df; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #333b46; stroke-linejoin: miter"/>
    </g>
    <g id="patch_11">
     <path d="M 28.8 105.12
@@ -159,7 +159,7 @@ Q 21.6 385.92 21.6 378.72
 L 21.6 112.32
 Q 21.6 105.12 28.8 105.12
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #d4dde6; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #36404c; stroke-linejoin: miter"/>
    </g>
    <g id="patch_12">
     <path d="M 37.44 140.4
@@ -167,7 +167,7 @@ L 660.96 140.4
 L 660.96 363.6
 L 37.44 363.6
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #e5ebef"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #20262e"/>
    </g>
    <g id="patch_13">
     <path d="M 96.48 295.2
@@ -175,7 +175,7 @@ L 405.36 228.96
 L 596.88 286.56
 L 288 352.8
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #cbd5de; stroke: #a8b9c7; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #36404c; stroke: #485563; stroke-linejoin: miter"/>
    </g>
    <g id="patch_14">
     <path d="M 167.76 267.12
@@ -183,7 +183,7 @@ L 310.32 236.88
 L 386.64 262.8
 L 244.08 298.8
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #a5b6c5; stroke: #71899c; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #485563; stroke: #8d9aaa; stroke-linejoin: miter"/>
    </g>
    <g id="patch_15">
     <path d="M 200.88 266.4
@@ -191,7 +191,7 @@ L 302.4 244.8
 L 317.52 249.84
 L 216 272.16
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #657e91"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #a3b1bf"/>
    </g>
    <g id="patch_16">
     <path d="M 198 272.88
@@ -199,7 +199,7 @@ L 277.92 256.32
 L 293.04 262.08
 L 213.12 279.36
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #93c6b2"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #3c755c"/>
    </g>
    <g id="patch_17">
     <path d="M 234 262.8
@@ -207,7 +207,7 @@ L 313.92 246.24
 L 329.04 252
 L 249.12 269.28
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #dfba7c"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #8c6f37"/>
    </g>
    <g id="patch_18">
     <path d="M 492.48 265.68
@@ -215,7 +215,7 @@ L 522.72 265.68
 L 522.72 316.08
 L 492.48 316.08
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #728b9e"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #8d9aaa"/>
    </g>
    <g id="patch_19">
     <path d="M 507.6 257.04
@@ -228,7 +228,7 @@ C 499.226229 271.263268 498.24 268.882301 498.24 266.4
 C 498.24 263.917699 499.226229 261.536732 500.981481 259.781481
 C 502.736732 258.026229 505.117699 257.04 507.6 257.04
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #8fc0d4; stroke: #3c5d76; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #36586a; stroke: #b1becb; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_20">
     <path d="M 528.48 192.24
@@ -241,7 +241,7 @@ C 520.106229 206.463268 519.12 204.082301 519.12 201.6
 C 519.12 199.117699 520.106229 196.736732 521.861481 194.981481
 C 523.616732 193.226229 525.997699 192.24 528.48 192.24
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #8fc0d4; stroke: #3c5d76; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #36586a; stroke: #b1becb; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_21">
     <path d="M 465.12 165.6
@@ -254,7 +254,7 @@ C 456.746229 179.823268 455.76 177.442301 455.76 174.96
 C 455.76 172.477699 456.746229 170.096732 458.501481 168.341481
 C 460.256732 166.586229 462.637699 165.6 465.12 165.6
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #8fc0d4; stroke: #3c5d76; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #36586a; stroke: #b1becb; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_22">
     <path d="M 398.16 206.64
@@ -267,7 +267,7 @@ C 389.786229 220.863268 388.8 218.482301 388.8 216
 C 388.8 213.517699 389.786229 211.136732 391.541481 209.381481
 C 393.296732 207.626229 395.677699 206.64 398.16 206.64
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #8fc0d4; stroke: #3c5d76; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #36586a; stroke: #b1becb; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_23">
     <path d="M 377.28 215.28
@@ -280,7 +280,7 @@ Q 375.12 233.28 375.12 231.12
 L 375.12 217.44
 Q 375.12 215.28 377.28 215.28
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #2589a5; stroke: #2589a5; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #66bed6; stroke: #66bed6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_24">
     <path d="M 28.8 401.76
@@ -293,7 +293,7 @@ Q 21.6 660.96 21.6 653.76
 L 21.6 408.96
 Q 21.6 401.76 28.8 401.76
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #d4dde6; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #36404c; stroke-linejoin: miter"/>
    </g>
    <g id="patch_25">
     <path d="M 241.92 410.4
@@ -306,7 +306,7 @@ Q 237.6 432.72 237.6 428.4
 L 237.6 414.72
 Q 237.6 410.4 241.92 410.4
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #e5eff8; stroke: #e5eff8; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #1b2938; stroke: #1b2938; stroke-linejoin: miter"/>
    </g>
    <g id="patch_26">
     <path d="M 38.16 441.36
@@ -314,7 +314,7 @@ L 290.16 441.36
 L 290.16 630.36
 L 38.16 630.36
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #e7edf2; stroke: #c6d2dc; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #20262e; stroke: #36404c; stroke-linejoin: miter"/>
    </g>
    <g id="patch_27">
     <path d="M 58.32 504
@@ -327,7 +327,7 @@ Q 54 551.52 54 547.2
 L 54 508.32
 Q 54 504 58.32 504
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #f8fafc; stroke: #f8fafc; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #111317; stroke: #111317; stroke-linejoin: miter"/>
    </g>
    <g id="patch_28">
     <path d="M 319.68 482.4
@@ -340,7 +340,7 @@ Q 315.36 504.72 315.36 500.4
 L 315.36 486.72
 Q 315.36 482.4 319.68 482.4
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #e6f3eb; stroke: #e6f3eb; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #183326; stroke: #183326; stroke-linejoin: miter"/>
    </g>
    <g id="patch_29">
     <path d="M 319.68 514.8
@@ -353,7 +353,7 @@ Q 315.36 537.12 315.36 532.8
 L 315.36 519.12
 Q 315.36 514.8 319.68 514.8
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #fff0cf; stroke: #fff0cf; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #3b2e18; stroke: #3b2e18; stroke-linejoin: miter"/>
    </g>
    <g id="patch_30">
     <path d="M 705.6 105.12
@@ -366,7 +366,7 @@ Q 698.4 209.52 698.4 202.32
 L 698.4 112.32
 Q 698.4 105.12 705.6 105.12
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #d4dde6; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #36404c; stroke-linejoin: miter"/>
    </g>
    <g id="patch_31">
     <path d="M 719.28 140.4
@@ -379,7 +379,7 @@ Q 714.96 162.72 714.96 158.4
 L 714.96 144.72
 Q 714.96 140.4 719.28 140.4
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #fff0cf; stroke: #fff0cf; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #3b2e18; stroke: #3b2e18; stroke-linejoin: miter"/>
    </g>
    <g id="patch_32">
     <path d="M 705.6 223.2
@@ -392,7 +392,7 @@ Q 698.4 381.6 698.4 374.4
 L 698.4 230.4
 Q 698.4 223.2 705.6 223.2
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #d4dde6; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #36404c; stroke-linejoin: miter"/>
    </g>
    <g id="patch_33">
     <path d="M 866.16 293.76
@@ -405,7 +405,7 @@ Q 861.84 316.08 861.84 311.76
 L 861.84 298.08
 Q 861.84 293.76 866.16 293.76
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #e6f3eb; stroke: #e6f3eb; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #183326; stroke: #183326; stroke-linejoin: miter"/>
    </g>
    <g id="patch_34">
     <path d="M 866.16 335.52
@@ -418,7 +418,7 @@ Q 861.84 357.84 861.84 353.52
 L 861.84 339.84
 Q 861.84 335.52 866.16 335.52
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #fff0cf; stroke: #fff0cf; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #3b2e18; stroke: #3b2e18; stroke-linejoin: miter"/>
    </g>
    <g id="patch_35">
     <path d="M 1058.4 335.52
@@ -431,7 +431,7 @@ Q 1054.08 357.84 1054.08 353.52
 L 1054.08 339.84
 Q 1054.08 335.52 1058.4 335.52
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #e5efff; stroke: #e5efff; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #182b45; stroke: #182b45; stroke-linejoin: miter"/>
    </g>
    <g id="patch_36">
     <path d="M 705.6 397.44
@@ -444,7 +444,7 @@ Q 698.4 509.76 698.4 502.56
 L 698.4 404.64
 Q 698.4 397.44 705.6 397.44
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #d4dde6; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #36404c; stroke-linejoin: miter"/>
    </g>
    <g id="patch_37">
     <path d="M 705.6 524.88
@@ -457,202 +457,202 @@ Q 698.4 660.96 698.4 653.76
 L 698.4 532.08
 Q 698.4 524.88 705.6 524.88
 z
-" clip-path="url(#p9f55f2fa8f)" style="fill: #ffffff; stroke: #d4dde6; stroke-linejoin: miter"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: #181b20; stroke: #36404c; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_1">
     <path d="M 507.6 266.4
 L 528.48 201.6
-" clip-path="url(#p9f55f2fa8f)" style="fill: none; stroke: #3c5d76; stroke-width: 15; stroke-linecap: round"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: none; stroke: #b1becb; stroke-width: 15; stroke-linecap: round"/>
    </g>
    <g id="line2d_2">
     <path d="M 528.48 201.6
 L 465.12 174.96
-" clip-path="url(#p9f55f2fa8f)" style="fill: none; stroke: #3c5d76; stroke-width: 15; stroke-linecap: round"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: none; stroke: #b1becb; stroke-width: 15; stroke-linecap: round"/>
    </g>
    <g id="line2d_3">
     <path d="M 465.12 174.96
 L 398.16 216
-" clip-path="url(#p9f55f2fa8f)" style="fill: none; stroke: #3c5d76; stroke-width: 15; stroke-linecap: round"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: none; stroke: #b1becb; stroke-width: 15; stroke-linecap: round"/>
    </g>
    <g id="line2d_4">
     <path d="M 38.16 441.36
 L 290.16 630.36
-" clip-path="url(#p9f55f2fa8f)" style="fill: none; stroke: #c6d2dc; stroke-linecap: square"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: none; stroke: #36404c; stroke-linecap: square"/>
    </g>
    <g id="line2d_5">
     <path d="M 38.16 630.36
 L 290.16 441.36
-" clip-path="url(#p9f55f2fa8f)" style="fill: none; stroke: #c6d2dc; stroke-linecap: square"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: none; stroke: #36404c; stroke-linecap: square"/>
    </g>
    <g id="line2d_6">
     <path d="M 713.52 283.68
 L 1116 283.68
-" clip-path="url(#p9f55f2fa8f)" style="fill: none; stroke: #e0e7ed; stroke-width: 1.5; stroke-linecap: square"/>
+" clip-path="url(#p9f55f2fa8f)" style="fill: none; stroke: #222831; stroke-width: 1.5; stroke-linecap: square"/>
    </g>
    <g id="text_1">
-    <text style="font-weight: 700; font-size: 22px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #ffffff" x="21.6" y="32.475312" transform="rotate(-0 21.6 32.475312)">Semantic Inspection Demo</text>
+    <text style="font-weight: 700; font-size: 22px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="21.6" y="32.475312" transform="rotate(-0 21.6 32.475312)">Semantic Inspection Demo</text>
    </g>
    <g id="text_2">
-    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #d7e7f3" x="730.8" y="29.604687" transform="rotate(-0 730.8 29.604687)">GUI改善案  /  B・Yの描画待ち場面</text>
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b1becb" x="730.8" y="29.604687" transform="rotate(-0 730.8 29.604687)">GUI改善案  /  B・Yの描画待ち場面</text>
    </g>
    <g id="text_3">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="30.24" y="78.717813" transform="rotate(-0 30.24 78.717813)">部品  B（高リブ）</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="30.24" y="78.717813" transform="rotate(-0 30.24 78.717813)">部品  B（高リブ）</text>
    </g>
    <g id="text_4">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="175.68" y="78.717813" transform="rotate(-0 175.68 78.717813)">仕様  Y（R1+R2）</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="175.68" y="78.717813" transform="rotate(-0 175.68 78.717813)">仕様  Y（R1+R2）</text>
    </g>
    <g id="text_5">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="288.72" y="78.717813" transform="rotate(-0 288.72 78.717813)">方式  UR10e</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="288.72" y="78.717813" transform="rotate(-0 288.72 78.717813)">方式  UR10e</text>
    </g>
    <g id="text_6">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="448.56" y="78.717813" transform="rotate(-0 448.56 78.717813)">初期化</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="448.56" y="78.717813" transform="rotate(-0 448.56 78.717813)">初期化</text>
    </g>
    <g id="text_7">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #ffffff" x="529.2" y="78.717813" transform="rotate(-0 529.2 78.717813)">1ステップ</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #181b20" x="529.2" y="78.717813" transform="rotate(-0 529.2 78.717813)">1ステップ</text>
    </g>
    <g id="text_8">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="624.24" y="78.717813" transform="rotate(-0 624.24 78.717813)">連続実行</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="624.24" y="78.717813" transform="rotate(-0 624.24 78.717813)">連続実行</text>
    </g>
    <g id="text_9">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="715.68" y="78.717813" transform="rotate(-0 715.68 78.717813)">停止予約</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="715.68" y="78.717813" transform="rotate(-0 715.68 78.717813)">停止予約</text>
    </g>
    <g id="text_10">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="814.32" y="78.717813" transform="rotate(-0 814.32 78.717813)">Reset</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="814.32" y="78.717813" transform="rotate(-0 814.32 78.717813)">Reset</text>
    </g>
    <g id="text_11">
-    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="37.44" y="128.932266" transform="rotate(-0 37.44 128.932266)">3Dシーン  /  OverviewCamera</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="37.44" y="128.932266" transform="rotate(-0 37.44 128.932266)">3Dシーン  /  OverviewCamera</text>
    </g>
    <g id="text_12">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="421.92" y="127.677812" transform="rotate(-0 421.92 127.677812)">アーム・部品・カメラの移動を確認</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="421.92" y="127.677812" transform="rotate(-0 421.92 127.677812)">アーム・部品・カメラの移動を確認</text>
    </g>
    <g id="text_13">
-    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="47.52" y="352.754375" transform="rotate(-0 47.52 352.754375)">配置確認用の模式図  /  実際の3D表示は既存Isaac Simを使用</text>
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="47.52" y="352.754375" transform="rotate(-0 47.52 352.754375)">配置確認用の模式図  /  実際の3D表示は既存Isaac Simを使用</text>
    </g>
    <g id="text_14">
-    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="37.44" y="425.572266" transform="rotate(-0 37.44 425.572266)">最新の保存済みRGB</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="37.44" y="425.572266" transform="rotate(-0 37.44 425.572266)">最新の保存済みRGB</text>
    </g>
    <g id="text_15">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #275c83" x="244.8" y="424.39" transform="rotate(-0 244.8 424.39)">capture_00 / front</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #91c4ee" x="244.8" y="424.39" transform="rotate(-0 244.8 424.39)">capture_00 / front</text>
    </g>
    <g id="text_16">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="399.6" y="424.317813" transform="rotate(-0 399.6 424.317813)">前回画像・原画像を表示中</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="399.6" y="424.317813" transform="rotate(-0 399.6 424.317813)">前回画像・原画像を表示中</text>
    </g>
    <g id="text_17">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="64.8" y="521.08125" transform="rotate(-0 64.8 521.08125)">保存済みカメラ画像の表示領域</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="64.8" y="521.08125" transform="rotate(-0 64.8 521.08125)">保存済みカメラ画像の表示領域</text>
    </g>
    <g id="text_18">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="64.8" y="540.237813" transform="rotate(-0 64.8 540.237813)">640 × 480  /  アスペクト比を維持</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="64.8" y="540.237813" transform="rotate(-0 64.8 540.237813)">640 × 480  /  アスペクト比を維持</text>
    </g>
    <g id="text_19">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="315.36" y="467.469297" transform="rotate(-0 315.36 467.469297)">履歴</text>
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="315.36" y="467.469297" transform="rotate(-0 315.36 467.469297)">履歴</text>
    </g>
    <g id="text_20">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #207147" x="322.56" y="496.317813" transform="rotate(-0 322.56 496.317813)">00  前方  保存済み</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #6bd39a" x="322.56" y="496.317813" transform="rotate(-0 322.56 496.317813)">00  前方  保存済み</text>
    </g>
    <g id="text_21">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #8a5c04" x="322.56" y="528.717813" transform="rotate(-0 322.56 528.717813)">01  後方  描画待ち・未保存</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #f0c66c" x="322.56" y="528.717813" transform="rotate(-0 322.56 528.717813)">01  後方  描画待ち・未保存</text>
    </g>
    <g id="text_22">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="315.36" y="561.117813" transform="rotate(-0 315.36 561.117813)">撮影時刻  9.475 s</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="315.36" y="561.117813" transform="rotate(-0 315.36 561.117813)">撮影時刻  9.475 s</text>
    </g>
    <g id="text_23">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="315.36" y="584.157812" transform="rotate(-0 315.36 584.157812)">表示切替  原画像 / 可視性の説明画像</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="315.36" y="584.157812" transform="rotate(-0 315.36 584.157812)">表示切替  原画像 / 可視性の説明画像</text>
    </g>
    <g id="text_24">
-    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="315.36" y="611.954375" transform="rotate(-0 315.36 611.954375)">待機中も保存済み画像の撮影IDを明示</text>
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="315.36" y="611.954375" transform="rotate(-0 315.36 611.954375)">待機中も保存済み画像の撮影IDを明示</text>
    </g>
    <g id="text_25">
-    <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="714.96" y="129.360781" transform="rotate(-0 714.96 129.360781)">現在の進行</text>
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="714.96" y="129.360781" transform="rotate(-0 714.96 129.360781)">現在の進行</text>
    </g>
    <g id="text_26">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #8a5c04" x="722.16" y="154.317813" transform="rotate(-0 722.16 154.317813)">後方へ到達済み・描画更新待ち 1/10</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #f0c66c" x="722.16" y="154.317813" transform="rotate(-0 722.16 154.317813)">後方へ到達済み・描画更新待ち 1/10</text>
    </g>
    <g id="text_27">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="714.96" y="184.12125" transform="rotate(-0 714.96 184.12125)">累積観測 66 / 126点    保存画像 1枚    追加動作 1回</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="714.96" y="184.12125" transform="rotate(-0 714.96 184.12125)">累積観測 66 / 126点    保存画像 1枚    追加動作 1回</text>
    </g>
    <g id="text_28">
-    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="714.96" y="247.012266" transform="rotate(-0 714.96 247.012266)">部位別の累積観測状態</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="714.96" y="247.012266" transform="rotate(-0 714.96 247.012266)">部位別の累積観測状態</text>
    </g>
    <g id="text_29">
-    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="714.96" y="272.834375" transform="rotate(-0 714.96 272.834375)">ID</text>
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="714.96" y="272.834375" transform="rotate(-0 714.96 272.834375)">ID</text>
    </g>
    <g id="text_30">
-    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="754.56" y="272.834375" transform="rotate(-0 754.56 272.834375)">名称</text>
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="754.56" y="272.834375" transform="rotate(-0 754.56 272.834375)">名称</text>
    </g>
    <g id="text_31">
-    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="861.84" y="272.834375" transform="rotate(-0 861.84 272.834375)">状態</text>
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="861.84" y="272.834375" transform="rotate(-0 861.84 272.834375)">状態</text>
    </g>
    <g id="text_32">
-    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="981.36" y="272.625" transform="rotate(-0 981.36 272.625)">coverage</text>
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="981.36" y="272.625" transform="rotate(-0 981.36 272.625)">coverage</text>
    </g>
    <g id="text_33">
-    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="1056.24" y="272.834375" transform="rotate(-0 1056.24 272.834375)">次対象</text>
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="1056.24" y="272.834375" transform="rotate(-0 1056.24 272.834375)">次対象</text>
    </g>
    <g id="text_34">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="714.96" y="307.96125" transform="rotate(-0 714.96 307.96125)">R1</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="714.96" y="307.96125" transform="rotate(-0 714.96 307.96125)">R1</text>
    </g>
    <g id="text_35">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="754.56" y="307.677813" transform="rotate(-0 754.56 307.677813)">手前側の底面</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="754.56" y="307.677813" transform="rotate(-0 754.56 307.677813)">手前の検査面</text>
    </g>
    <g id="text_36">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #207147" x="869.04" y="307.677813" transform="rotate(-0 869.04 307.677813)">観測条件充足</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #6bd39a" x="869.04" y="307.677813" transform="rotate(-0 869.04 307.677813)">観測条件充足</text>
    </g>
    <g id="text_37">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="981.36" y="307.96125" transform="rotate(-0 981.36 307.96125)">100.0%</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="981.36" y="307.96125" transform="rotate(-0 981.36 307.96125)">100.0%</text>
    </g>
    <g id="text_38">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="1064.16" y="307.96125" transform="rotate(-0 1064.16 307.96125)">—</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="1064.16" y="307.96125" transform="rotate(-0 1064.16 307.96125)">—</text>
    </g>
    <g id="text_39">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="714.96" y="349.72125" transform="rotate(-0 714.96 349.72125)">R2</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="714.96" y="349.72125" transform="rotate(-0 714.96 349.72125)">R2</text>
    </g>
    <g id="text_40">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="754.56" y="349.437813" transform="rotate(-0 754.56 349.437813)">奥側の底面</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="754.56" y="349.437813" transform="rotate(-0 754.56 349.437813)">リブ奥の検査面</text>
    </g>
    <g id="text_41">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #8a5c04" x="869.04" y="349.437813" transform="rotate(-0 869.04 349.437813)">一部観測</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #f0c66c" x="869.04" y="349.437813" transform="rotate(-0 869.04 349.437813)">一部観測</text>
    </g>
    <g id="text_42">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="981.36" y="349.72125" transform="rotate(-0 981.36 349.72125)">4.8%</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="981.36" y="349.72125" transform="rotate(-0 981.36 349.72125)">4.8%</text>
    </g>
    <g id="text_43">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #245eb5" x="1061.28" y="349.437813" transform="rotate(-0 1061.28 349.437813)">対象</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #80b8ff" x="1061.28" y="349.437813" transform="rotate(-0 1061.28 349.437813)">対象</text>
    </g>
    <g id="text_44">
-    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="714.96" y="422.692266" transform="rotate(-0 714.96 422.692266)">次の動作と理由</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="714.96" y="422.692266" transform="rotate(-0 714.96 422.692266)">次の動作と理由</text>
    </g>
    <g id="text_45">
-    <text style="font-size: 14px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #245eb5" x="714.96" y="449.648125" transform="rotate(-0 714.96 449.648125)">後方視点 rear からR2を撮影</text>
+    <text style="font-size: 14px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #80b8ff" x="714.96" y="449.648125" transform="rotate(-0 714.96 449.648125)">後方視点 rear からR2を撮影</text>
    </g>
    <g id="text_46">
-    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="714.96" y="473.997813" transform="rotate(-0 714.96 473.997813)">高いリブがR2を遮蔽。未観測点の追加観測を計画。</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="714.96" y="473.997813" transform="rotate(-0 714.96 473.997813)">高いリブがR2を遮蔽。未観測点の追加観測を計画。</text>
    </g>
    <g id="text_47">
-    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="714.96" y="493.874375" transform="rotate(-0 714.96 493.874375)">予測追加 60点  /  実観測の累積値とは区別</text>
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="714.96" y="493.874375" transform="rotate(-0 714.96 493.874375)">予測追加 60点  /  実観測の累積値とは区別</text>
    </g>
    <g id="text_48">
-    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="714.96" y="550.132266" transform="rotate(-0 714.96 550.132266)">撮影・保存状況</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="714.96" y="550.132266" transform="rotate(-0 714.96 550.132266)">撮影・保存状況</text>
    </g>
    <g id="text_49">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="714.96" y="577.71" transform="rotate(-0 714.96 577.71)">capture_00.png</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="714.96" y="577.71" transform="rotate(-0 714.96 577.71)">capture_00.png</text>
    </g>
    <g id="text_50">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #207147" x="921.6" y="577.96125" transform="rotate(-0 921.6 577.96125)">保存済み</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #6bd39a" x="921.6" y="577.96125" transform="rotate(-0 921.6 577.96125)">保存済み</text>
    </g>
    <g id="text_51">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #1c3044" x="714.96" y="603.63" transform="rotate(-0 714.96 603.63)">capture_01.png</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #e6eaf0" x="714.96" y="603.63" transform="rotate(-0 714.96 603.63)">capture_01.png</text>
    </g>
    <g id="text_52">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #8a5c04" x="921.6" y="603.88125" transform="rotate(-0 921.6 603.88125)">描画待ち・未保存</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #f0c66c" x="921.6" y="603.88125" transform="rotate(-0 921.6 603.88125)">描画待ち・未保存</text>
    </g>
    <g id="text_53">
-    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="714.96" y="638.814687" transform="rotate(-0 714.96 638.814687)">出力先  outputs/arm_loop_B_Y_02</text>
+    <text style="font-size: 10px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="714.96" y="638.814687" transform="rotate(-0 714.96 638.814687)">出力先  outputs/arm_loop_B_Y_02</text>
    </g>
    <g id="text_54">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="21.6" y="694.60125" transform="rotate(-0 21.6 694.60125)">観測条件の充足を表示します。製品の傷・良否判定は未評価です。</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="21.6" y="694.60125" transform="rotate(-0 21.6 694.60125)">観測条件の充足を表示します。製品の傷・良否判定は未評価です。</text>
    </g>
    <g id="text_55">
-    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #536a7c" x="792" y="694.60125" transform="rotate(-0 792 694.60125)">画面設計案  /  GUIは未実装</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #b8c3cf" x="792" y="694.60125" transform="rotate(-0 792 694.60125)">画面設計案  /  GUIは未実装</text>
    </g>
   </g>
  </g>

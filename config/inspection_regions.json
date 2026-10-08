@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "source": "procedural inspection surface definitions; names are display metadata",
+  "regions": {
+    "R1": {"name": "手前の検査面", "prim_path": "/World/Part/R1Marker"},
+    "R2": {"name": "リブ奥の検査面", "prim_path": "/World/Part/R2Marker"}
+  }
+}

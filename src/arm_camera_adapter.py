@@ -7,6 +7,7 @@ import numpy as np
 from arm_camera_evidence import DEFAULT_MOUNT, assert_pose_close, mounted_capture_record
 from arm_motion_adapter import ArmMotionAdapter
 from capture_metadata import reference_time, rigid_transform
+from camera_mount_geometry import MOUNT_CUBES
 from render_camera_evidence import RenderCameraPosePending
 
 
@@ -32,8 +33,8 @@ class ArmCameraAdapter(ArmMotionAdapter):
         self._create_target()
         self.world_part = self.world_transform(self.PART_PATH)
         # Display geometry is flange-local; no rigid-body/mass or collision properties are added.
-        self._cube(FLANGE_PATH+"/CameraBracket", (0.09,0,0.1), (0.18,0.03,0.025), (0.25,0.28,0.3))
-        self._cube(FLANGE_PATH+"/CameraHousing", (0.18,0,0.12), (0.06,0.05,0.06), (0.05,0.45,0.65))
+        for name, position, dimensions, color in MOUNT_CUBES:
+            self._cube(FLANGE_PATH+"/"+name, position, dimensions, color)
         camera = UsdGeom.Camera.Define(self.stage, self.CAMERA_PATH)
         # Author once in the flange frame. Subsequent camera motion comes exclusively from the arm.
         camera.MakeMatrixXform().Set(Gf.Matrix4d(self.mount.T.tolist()))
@@ -57,6 +58,7 @@ class ArmCameraAdapter(ArmMotionAdapter):
                                 "render_camera_paths":self.render_camera_paths,
                                 "gui_view": "external OverviewCamera; sensor is not used for interactive navigation",
                                 "mount_geometry": "visual only; attached camera mass and collision not modeled",
+                                "mount_visual_cubes": [dict(name=n, position_m=p, dimensions_m=d) for n,p,d,_ in MOUNT_CUBES],
                                 "capture": "stopped timeline; reference time set to held physics time; render delta_time=0"}
 
     def _create_target(self):
