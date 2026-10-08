@@ -7,6 +7,12 @@ Read `docs/PROJECT_CONTEXT.md` and `docs/DEVELOPMENT_PLAN.md` before proposing o
 - Before changes: report current state, files to change, assumptions, acceptance tests, and a short implementation plan.
 - Prefer small, reversible changes. Preserve the existing working Python-to-Isaac-Sim startup flow. Do not rewrite unrelated code.
 - Separate simulator adapter, geometry/visibility, inspection state, knowledge retrieval, planner and UI. The core must be testable without Isaac Sim.
+- Preserve the verified free-camera mode when adding the optional UR10e eye-in-hand mode. Use separate `FreeCameraExecutor` and `ArmMountedCameraExecutor` implementations behind a common camera-pose interface. The planner emits camera target poses, not joint angles.
+- Verify robot APIs against the installed Isaac Sim version. Do not assume the bundled UR10 model matches UR10e; validate USD/URDF/XRDF forward kinematics before IK or arm integration. Do not upgrade Isaac Sim.
+- In arm mode, define and log `T_flange_camera`, requested camera/flange poses and actual poses. Never assume wrist, flange, tool and camera optical frames are identical.
+- Reject infeasible goals and report unreached targets as `blocked`. Use supported obstacle avoidance where available; motion generation does not establish collision safety.
+- Do not move the camera independently in arm mode or teleport robot joints to demonstrate target motion. Capture after convergence and settling, using a fresh image and measured camera pose.
+- The user reviews each arm substep's output before the next substep. Commit completed changes locally; do not push, because the user performs pushes.
 - Keep deterministic behavior, source/approval status, coordinate frames, units and event history explicit.
 - No hardcoded `part_B -> camera_pose_X` decisions. No direct access to hidden defect labels by the planner.
 - Distinguish simulated ground truth, derived observations, mock values and image-based estimates in output and UI.

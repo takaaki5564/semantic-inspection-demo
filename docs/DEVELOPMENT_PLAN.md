@@ -22,16 +22,40 @@ Acceptance: spec X/Y lead to different requirements; no motion capability return
 Connect plan -> simulator camera movement -> new RGB capture -> observation evaluator -> state update -> next plan. Avoid stale frames; enforce max actions and stop conditions.
 Acceptance: Part B improves required observed surface samples with additional view; logs show actual executed steps.
 
+## UR10e feasibility preflight — after Day 4, before Day 4.5
+
+Day 1–4 are already implemented. Insert the proposed robot feasibility spike here rather than returning to Day 2. Target approximately 1–2 hours for the initial feasibility work, with the user reviewing each substep before proceeding.
+
+1. **Load/display only (current substep):** add an independent entrypoint using the existing environment and local UR10e USD. Keep the timeline stopped. Record six authored revolute joints and their limits, articulation root, flange transform, populated meshes including instance proxies, asset source and runtime. User confirms the GUI display and report. See `docs/ARM_PREFLIGHT_RUNBOOK.md`.
+2. **Model consistency:** obtain UR10e URDF/XRDF compatible with the chosen USD; compare forward kinematics in verified base/flange/tool frames. Do not use the bundled `ur10` configuration without proving equivalence.
+3. **Controlled motion:** initialize the articulation and command two illustrative goals with installed-version-compatible IK/control. Check joint limits, actual motion, convergence and timeouts. Do not teleport joints to goals.
+
+Gate: two controlled arm motions and model consistency must pass before camera integration. If feasibility cannot be established within the timebox, continue the verified free-camera demo and leave arm integration pending. Passing Step 1 alone does not pass this gate.
+
+## Day 4.5 — Arm-camera integration (conditional on preflight)
+
+1. Introduce a common camera-pose executor interface while retaining the existing free-camera behavior and defaults.
+2. Add UR10e execution and rigid flange-mounted RGB camera; define and verify `T_flange_camera`.
+3. Convert requested camera poses to flange and robot-model frames; screen infeasible candidate views before planner selection.
+4. Move through joint targets, wait for settling and acceptable camera pose error, then capture a fresh frame. Return measured poses and explicit blocked reasons.
+5. Extend visibility to robot Mesh/instance geometry and distinguish static part/cell invariants from moving arm geometry. Update observations from the actual capture scene.
+6. Compare free-camera and arm-camera runs with the same inspection scenarios and two camera goals.
+
+Gate: actual camera mounting, controlled motion, fresh captures and observation updates pass; existing Day 1–4 behavior still works. If not, retain free-camera mode as the submission baseline.
+
 ## Day 5 — Simple display and recipe candidate
 Add minimal controls for part A/B, spec X/Y, step/run/reset. Show current RGB, observed/missing regions, next action and reason. Save event log and recipe candidate. Optional synthetic line detection only if stable.
+Add free-camera/UR10e mode selection only if Day 4.5 passes; include target/actual camera pose, controller status and blocked reason in saved evidence.
 Acceptance: demo understandable without reading source; outputs persist.
 
 ## Day 6 — Test and compare
 Run fixed-view baseline and planned-view approach on same A/B cases; test geometry changes, no available view, motion disabled, spec switch reset, part transform and replay determinism.
+If Day 4.5 passes, also compare the two executors and test IK failure, unreachable goals, motion timeout, fixed camera mounting and pose errors. Collision safety and real-world robot performance remain unvalidated.
 Acceptance: numerical comparison from logs, honest blocked cases, no hidden hardcoded success.
 
 ## Day 7 — Submission materials
 Record 90–120s video and freeze source; summarize implemented vs mocked vs future work, compare results, and make architecture/roadmap figure. Target submission review on Oct 15; official deadline Oct 16 13:00 JST must be independently verified before submission.
+Show the simulated arm and wrist camera only if Day 4.5 passes; otherwise present arm integration as future work.
 
 ## Execution protocol for each Codex step
 1. Inspect only necessary files.
@@ -39,3 +63,4 @@ Record 90–120s video and freeze source; summarize implemented vs mocked vs fut
 3. Implement minimal changes.
 4. Run test/launch if runtime available; otherwise state what was not run and provide user commands.
 5. Report artifacts and wait for explicit go-ahead.
+6. For arm work, wait for the user's output review after each substep. Commit locally; the user performs pushes.
