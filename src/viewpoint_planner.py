@@ -49,7 +49,8 @@ def motion_cost(current_pose, candidate_pose, rotation_cost_m_per_rad):
 
 
 def plan_next_view(scene, regions, camera, state, knowledge, spec_id, candidates, available_capabilities,
-                   *, rotation_cost_m_per_rad=0.1, max_incidence_angle_deg=75.0, surface_tolerance_m=1e-5):
+                   *, rotation_cost_m_per_rad=0.1, max_incidence_angle_deg=75.0, surface_tolerance_m=1e-5,
+                   candidate_scenes=None):
     spec = knowledge.specification(spec_id)
     expected = {region: frozenset(ids) for region, ids in spec.required_points(regions).items()}
     if (state.part_geometry_version != scene.geometry_version or state.inspection_spec_version != spec.version
@@ -62,6 +63,13 @@ def plan_next_view(scene, regions, camera, state, knowledge, spec_id, candidates
     candidates = tuple(candidates)
     if len({view.view_id for view in candidates}) != len(candidates):
         raise ValueError("Candidate view IDs must be unique")
+    if candidate_scenes is not None:
+        if set(candidate_scenes) != {view.view_id for view in candidates}:
+            raise ValueError("Prediction scenes must identify every candidate exactly once")
+        for predicted in candidate_scenes.values():
+            if (predicted.geometry_version != scene.geometry_version
+                    or not np.allclose(predicted.T_world_part, scene.T_world_part, rtol=0, atol=1e-9)):
+                raise ValueError("Candidate prediction changed part geometry or placement")
     missing = state.missing_evidence()
     cause_counts = {}
     for points in missing.values():
@@ -85,6 +93,8 @@ def plan_next_view(scene, regions, camera, state, knowledge, spec_id, candidates
         "ranking": {"order": ["new_required_point_count_desc", "motion_cost_asc", "view_id_asc"],
                     "cost_rounding_decimals": 12, "rotation_cost_m_per_rad": rotation_cost_m_per_rad},
     }
+    if candidate_scenes is not None:
+        result["prediction_geometry_policy"] = "candidate_specific_scene; predictions never update observation state"
     if state.summary()["inspection_observation_satisfied"]:
         result.update(status="inspection_observation_satisfied", reason="required_samples_already_observed")
         return result
@@ -109,7 +119,8 @@ def plan_next_view(scene, regions, camera, state, knowledge, spec_id, candidates
     for candidate in sorted(candidates, key=lambda view: view.view_id):
         world_pose = scene.T_world_part @ candidate.T_part_camera
         predicted_camera = replace(camera, T_world_camera=world_pose)
-        report = evaluate_visibility(scene, regions, predicted_camera, required_region_ids=spec.required_region_ids,
+        predicted_scene = scene if candidate_scenes is None else candidate_scenes[candidate.view_id]
+        report = evaluate_visibility(predicted_scene, regions, predicted_camera, required_region_ids=spec.required_region_ids,
                                      inspection_spec_version=spec.version,
                                      max_incidence_angle_deg=max_incidence_angle_deg,
                                      surface_tolerance_m=surface_tolerance_m)
