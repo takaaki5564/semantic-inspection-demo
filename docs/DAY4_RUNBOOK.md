@@ -26,13 +26,15 @@ Play操作は不要。次の順に自動実行する。
 最後の視点ではオレンジ色のR2が手前に見える。緑色のR1は隠れるが、初期撮影で観測済みなので累積状態は充足する。
 各段階の計画と累積観測点数は端末に表示する。GUI内の操作パネルはDay 5で追加する。
 
-## A・仕様X・停止条件の確認
+## 通常条件・仕様差・停止条件の確認
 
 各コマンドは前のGUIを閉じてから実行する。保存先は毎回新しくする。
+通常のB・Yも一覧に含め、比較用の保存先を指定する。移動は有効、追加操作上限は既定の3回。
 
 ```bash
 python -u src/day4_closed_loop.py --part A --spec Y --output-dir outputs/day4_A_Y_01
 python -u src/day4_closed_loop.py --part B --spec X --output-dir outputs/day4_B_X_01
+python -u src/day4_closed_loop.py --part B --spec Y --output-dir outputs/day4_B_Y_01
 python -u src/day4_closed_loop.py --part B --spec Y --disable-camera-motion --output-dir outputs/day4_blocked_01
 python -u src/day4_closed_loop.py --part B --spec Y --max-actions 0 --output-dir outputs/day4_limit_01
 ```
