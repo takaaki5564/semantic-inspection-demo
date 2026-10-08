@@ -55,6 +55,14 @@ For the arm extension, define a constant `T_flange_camera` and compute `T_world_
 ## Explicitly deferred
 Camera-based shape/pose estimation, CAD registration, real-metal optics/reflection/oil, scratch-vs-machining-mark classification, depth measurement, grasp/regrasp, robot safety validation, full cycle-time guarantee, expert approval workflow, production-grade defect detection, LLM-driven ontology generation and RL.
 
+## Region visualization proposal (nedo-v3)
+
+The user supplied three proposal documents in `/home/ishii/Downloads/nedo-v3`. They are reflected in `docs/REGION_VISUALIZATION_DESIGN.md` and the staged plan. This update documents requirements; visualization code is not yet implemented. Begin implementation after the preceding implementation specified by the user is complete; the insertion point is being clarified. Day 4.5c remains implemented with user output review pending, and Day 5 is not recorded as complete.
+
+Priority is a right-side region list (ID, name, observation state, cumulative coverage, next capture target), then region-specific USD Prim colors. A fixed-view GUI schematic is the alternative when 3D isolation is impractical, not another mandatory feature. Region states are `unconfirmed`, `partial`, `confirmed`, `needs_recheck` and `not_required`; they supplement existing whole-session statuses. Only evaluator/state logic determines them. `confirmed` means the defined observation conditions are satisfied, never product OK/NG.
+
+Reuse actual `SurfaceRegion` IDs/Prim mappings, cumulative sample-point observations and closed-loop events for both free/arm executors. A/B or specification changes reset incompatible state. Keep inspection part materials intact and isolate visualization from RGB, shadows, ray geometry and physics; modifying the original marker material would affect captured images. The exact 3D isolation API must be checked in the installed Isaac Sim runtime before implementation. Detailed heatmaps, arbitrary mesh segmentation and a separate visualization application are out of scope.
+
 ## Future extension story
 The same requirement -> missing evidence -> eligible action -> new observation loop can later support lighting changes, additional measurements, regrasping, uncertain pose active perception, human escalation, validated inspection recipes and real-world robot control. Each requires separate technical validation.
 
