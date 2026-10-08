@@ -107,7 +107,7 @@ python -u src/arm_model_check.py --export-model --output-dir outputs/arm_step2_r
 - 15条件すべて成功。最大位置誤差は約 `7.04e-8 m`、最大角度誤差は約 `2.19e-7 rad`。保存されたUSDゼロ姿勢との照合、関節名・角度範囲も成功しています。
 - 通常コマンドの確認結果：`outputs/arm_step2_codex_01/arm_model_report.json`。自動生成物なのでGitには含めません。
 - 既存テストと、閉形式の2関節モデル・軸の反転・位置ずれ・関節順変更・モデル改変・出力上書き・結果保存失敗を扱うテストを確認しています。
-- ユーザーによるStep 2の出力確認は未完了。Step 3は未着手です。
+- ユーザーによるStep 2の出力確認が完了し、Step 3への進行が承認されました。Step 3の実装・開発時の動作確認は完了し、ユーザーのGUI・出力確認を待っています。手順は [ARM_MOTION_RUNBOOK.md](ARM_MOTION_RUNBOOK.md) を参照してください。
 
 ```bash
 python -B -m unittest discover -s tests

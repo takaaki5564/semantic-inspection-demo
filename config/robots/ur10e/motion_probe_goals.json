@@ -1,0 +1,81 @@
+{
+  "base_frame": "base_link",
+  "tool_frame": "flange",
+  "description": "Two illustrative flange poses for an isolated control probe, derived offline from the validated USD joint FK. These are not inspection camera goals. Only Cartesian poses are passed to IK; the reference joint vectors document provenance.",
+  "goals": [
+    {
+      "goal_id": "goal_01",
+      "reference_fk_joints_rad": {
+        "shoulder_pan_joint": 0.2,
+        "shoulder_lift_joint": -0.7,
+        "elbow_joint": 0.6,
+        "wrist_1_joint": -0.2,
+        "wrist_2_joint": 0.5,
+        "wrist_3_joint": 0.1
+      },
+      "T_base_flange_target": [
+        [
+          0.2745342364415581,
+          -0.9412557558416464,
+          -0.19664321782462435,
+          1.0487469797037037
+        ],
+        [
+          0.9510823991655326,
+          0.29593071029836476,
+          -0.08869771530225518,
+          0.4946462018899436
+        ],
+        [
+          0.1416800021844482,
+          -0.16267334384365897,
+          0.9764548940856088,
+          0.5344876779774349
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "goal_id": "goal_02",
+      "reference_fk_joints_rad": {
+        "shoulder_pan_joint": -0.25,
+        "shoulder_lift_joint": -0.9,
+        "elbow_joint": 0.8,
+        "wrist_1_joint": 0.1,
+        "wrist_2_joint": 0.4,
+        "wrist_3_joint": -0.2
+      },
+      "T_base_flange_target": [
+        [
+          0.6051864304543887,
+          -0.7802150799596987,
+          -0.15815755877401697,
+          1.0336555665974123
+        ],
+        [
+          0.7960837797580561,
+          0.5931229859706844,
+          0.12023202202136553,
+          0.026596077384674836
+        ],
+        [
+          4.683876286450201e-08,
+          -0.19866945541955,
+          0.9800665525785976,
+          0.5978541785152998
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ]
+}
